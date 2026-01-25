@@ -1,0 +1,13 @@
+{
+  "name": "kindercare-downloader",
+  "version": "1.0.0",
+  "description": "Download photos and videos from KinderCare",
+  "main": "kindercare-downloader.cjs",
+  "scripts": {
+    "download": "node kindercare-downloader.cjs",
+    "dry-run": "node kindercare-downloader.cjs --dry-run"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}

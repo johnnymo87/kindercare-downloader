@@ -1,0 +1,13 @@
+# Secrets
+.env
+*.pem
+*.key
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+
+# Logs
+*.log

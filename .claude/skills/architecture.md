@@ -81,10 +81,21 @@ Google Photos
 - We maintain `.uploaded` log file to track what's been uploaded
 - Upload script only sends files not in the log
 
+### Chrome Remote Debugging
+
+Chrome 136+ (mid-2025) blocks `--remote-debugging-port` on the default data directory as a security measure against cookie theft. A separate `--user-data-dir` is required.
+
+- **Debug profile location**: `~/.chrome-debug-profile`
+- The profile persists between runs (login once, reuse across sessions)
+- To bootstrap with existing cookies, copy the default profile:
+  `cp -r ~/Library/Application\ Support/Google/Chrome/Default ~/.chrome-debug-profile/Default`
+- Quit all Chrome instances before launching with `--remote-debugging-port` (only one instance can hold a profile at a time)
+- If CDP connection fails, verify Chrome is listening: `curl -s http://localhost:9222/json/version`
+
 ## Dependencies
 
 - Node.js + Playwright (Chrome automation)
-- Chrome with `--remote-debugging-port=9222`
+- Chrome with `--remote-debugging-port=9222 --user-data-dir=~/.chrome-debug-profile`
 - exiftool (EXIF metadata for photos)
 - ffmpeg (video conversion)
 - rclone (Google Photos upload)
@@ -97,4 +108,5 @@ Google Photos
 | `~/Downloads/kindercare/` | All downloaded media |
 | `~/Downloads/kindercare-favorites/` | Favorited items for Google Photos |
 | `~/Downloads/kindercare-favorites/.uploaded` | Upload tracking log |
+| `~/.chrome-debug-profile/` | Chrome debug profile for CDP |
 | `~/.config/rclone/rclone.conf` | rclone Google Photos config |

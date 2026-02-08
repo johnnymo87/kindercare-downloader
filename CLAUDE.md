@@ -13,13 +13,25 @@ npm install  # installs playwright
 
 ### 1. Start Chrome with Remote Debugging
 
+Chrome 136+ requires `--user-data-dir` for remote debugging. Quit any running Chrome first, then:
+
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --remote-debugging-port=9222 &
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --remote-debugging-port=9222 \
+  --user-data-dir="$HOME/.chrome-debug-profile" &
+```
+
+**First time?** Copy your default Chrome profile to reuse existing cookies/sessions:
+
+```bash
+mkdir -p ~/.chrome-debug-profile
+cp -r ~/Library/Application\ Support/Google/Chrome/Default ~/.chrome-debug-profile/Default
 ```
 
 ### 2. Log into KinderCare
 
 Navigate to `https://classroom.kindercare.com/accounts/YOUR_ACCOUNT_ID/activities` and log in.
+The debug profile persists between runs, so you only need to log in once (or after cookies expire).
 
 ### 3. Download Media
 

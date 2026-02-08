@@ -42,7 +42,7 @@ for file in "${new_files[@]}"; do
 done
 
 # Upload via rclone
-if rclone copy "$tmp_dir" gphotos:upload -v 2>&1; then
+if rclone copy "$tmp_dir" gphotos:upload -v -L 2>&1; then
   # Mark files as uploaded
   for file in "${new_files[@]}"; do
     basename "$file" >> "$UPLOADED_LOG"

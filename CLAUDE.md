@@ -84,7 +84,7 @@ Copy `.env.example` to `.env` and fill in your credentials (not committed to git
 
 | Skill | Description |
 |-------|-------------|
-| [Architecture](.claude/skills/architecture.md) | System design, data flow, dependencies |
+| [Architecture](.agents/skills/kindercare-downloader-architecture/SKILL.md) | System design, data flow, dependencies |
 
 ## File Structure
 
@@ -96,7 +96,8 @@ kindercare-downloader/
 ├── package.json
 ├── .env                       # Secrets (not in git)
 ├── .env.example               # Template for secrets
-└── .claude/
+└── .agents/
     └── skills/
-        └── architecture.md
+        └── kindercare-downloader-architecture/
+            └── SKILL.md
 ```

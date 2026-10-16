@@ -1,3 +1,8 @@
+---
+name: kindercare-downloader-architecture
+description: Use when understanding the system design, data flow, components, dependencies, or file locations of KinderCare Downloader.
+---
+
 # KinderCare Downloader Architecture
 
 ## Overview
